@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kshf Jaan ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Poppins;
+background:#050505;
+color:white;
+overflow:hidden;
+}
+
+/* BACKGROUND GRADIENT GLOW */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 30% 30%, rgba(255,215,0,0.2), transparent),
+radial-gradient(circle at 70% 70%, rgba(255,105,180,0.2), transparent);
+filter:blur(80px);
+z-index:-1;
+}
+
+/* INTRO SCREEN */
+.intro{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+animation:fadeOut 3s ease forwards;
+animation-delay:3s;
+}
+
+.intro h1{
+font-family:Playfair Display;
+font-size:40px;
+color:gold;
+letter-spacing:3px;
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeOut{
+to{opacity:0; visibility:hidden;}
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* MAIN */
+.main{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+/* GLASS CARD */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:40px;
+box-shadow:0 0 40px rgba(255,215,0,0.2);
+}
+
+/* TITLE */
+h1{
+font-family:Playfair Display;
+font-size:55px;
+color:gold;
+}
+
+/* COUNTDOWN */
+.countdown{
+display:flex;
+gap:15px;
+margin:30px 0;
+}
+
+.box{
+padding:15px;
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+min-width:70px;
+}
+
+.box span{
+font-size:24px;
+color:#ff99cc;
+}
+
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,gold,pink);
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px pink;
+}
+
+/* LETTER MODAL */
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-content{
+max-width:600px;
+text-align:center;
+line-height:1.7;
+animation:fadeIn 1s ease;
+}
+
+/* FINAL */
+.final{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.final h1{
+font-size:60px;
+color:pink;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:35px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- INTRO -->
+<div class="intro">
+<h1>For Someone Special ❤️</h1>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+<div class="card">
+
+<h1>Kshf Jaan ❤️</h1>
+<p>You are my soul, my peace, my everything</p>
+
+<div class="countdown">
+<div class="box"><span id="d"></span><br>D</div>
+<div class="box"><span id="h"></span><br>H</div>
+<div class="box"><span id="m"></span><br>M</div>
+<div class="box"><span id="s"></span><br>S</div>
+</div>
+
+<button class="btn" onclick="openFinal()">Open My Heart 💌</button>
+
+</div>
+</div>
+
+<!-- LETTER -->
+<div class="modal" id="letter">
+<div class="modal-content">
+<p>
+Meri pyaari Kshf Jaan ❤️  
+
+Tum meri zindagi ka wo hissa ho jo kabhi replace nahi ho sakta.  
+Tum meri izat ho, meri mohabbat ho, meri duniya ho.  
+
+Tum mere liye mujh se bhi zyada azeez ho…  
+bilkul meri wife ki tarah meri apni 💖  
+
+Main tum se itni mohabbat karta hoon ke har lafz chhota lagta hai.  
+Tum meri dua ho, mera sukoon ho, mera sab kuch ho.  
+
+Happy Birthday meri jaan 🎂  
+ILOVEYOUSOMUCHJAN 💞
+</p>
+
+<button class="btn" onclick="closeLetter()">Close</button>
+</div>
+</div>
+
+<!-- FINAL -->
+<div class="final" id="final">
+<h1>I LOVE YOU ❤️</h1>
+<p>Forever Yours - Ali</p>
+</div>
+
+<script>
+// COUNTDOWN
+var date = new Date("Apr 17, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+var now = new Date().getTime();
+var gap = date - now;
+
+document.getElementById("d").innerText = Math.floor(gap/(1000*60*60*24));
+document.getElementById("h").innerText = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerText = Math.floor((gap%(1000*60*60))/(1000*60));
+document.getElementById("s").innerText = Math.floor((gap%(1000*60))/1000);
+},1000);
+
+// MODAL
+function openLetter(){
+document.getElementById("letter").style.display="flex";
+}
+
+function closeLetter(){
+document.getElementById("letter").style.display="none";
+}
+
+// FINAL
+function openFinal(){
+document.getElementById("final").style.display="flex";
+}
+</script>
+
+</body>
+</html>
